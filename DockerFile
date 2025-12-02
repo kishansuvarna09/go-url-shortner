@@ -1,1 +1,12 @@
 FROM golang:alpine
+
+WORKDIR /app/go-url-shortner
+
+COPY go.* ./
+
+COPY . .
+
+RUN go build -o /app/go-url-shortner/build/myapp .
+
+EXPOSE 8080
+ENTRYPOINT ["/app/go-url-shortner/build/myapp"]

@@ -30,4 +30,8 @@ func main() {
 
 func setup_routers(router *gin.Engine) {
 	router.POST("/api/v1", routes.ShortenUrl)
+	router.GET("/api/v1/:shortID", routes.GetByShortID)
+	router.PUT("/api/v1/:shortID", routes.EditUrl)
+	router.DELETE("/api/v1/:shortID", routes.DeleteUrl)
+	router.POST("/api/v1/tag", routes.AddTag)
 }
